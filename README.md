@@ -50,7 +50,7 @@ jobs:
           OUTPUT: ./developer_key
           PASSPHRASE: ${{ secrets.DEVELOPER_KEY_PASSPHRASE }}
       - name: Build
-        uses: blackshadev/garmin-connectiq-build-action@8.3.0-test
+        uses: blackshadev/garmin-connectiq-build-action@8.4.0
         with:
           projectJungle: ./monkey.jungle
           developerKey: ./developer_key
