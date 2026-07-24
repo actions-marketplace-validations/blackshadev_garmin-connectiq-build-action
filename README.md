@@ -24,6 +24,10 @@ This action build your ConnectIQ app
 
 **Required** The path where to export to. Default `"./out/export.prg"`.
 
+## `extraArgs`
+
+**Optional** Additional arguments passed to the monkeybrains compiler. Default `""`.
+
 ## Outputs
 
 (none)
@@ -50,13 +54,14 @@ jobs:
           OUTPUT: ./developer_key
           PASSPHRASE: ${{ secrets.DEVELOPER_KEY_PASSPHRASE }}
       - name: Build
-        uses: blackshadev/garmin-connectiq-build-action@8.4.0
+        uses: blackshadev/garmin-connectiq-build-action@9.1.1
         with:
           projectJungle: ./monkey.jungle
           developerKey: ./developer_key
           outputPath: out/app.prg
           device: fr165
           typeCheck: '1'
+          extraArgs: '-z resources'
       - name: Upload release artifacts
         uses: actions/upload-artifact@v4
         with:
